@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+Sitemap: https://olfant.com/sitemap.xml
+Allow: https://olfant.com/
+Allow: https://olfant.com/gem-registration-form.php
+Allow: https://olfant.com/about-us.php
+Allow: https://olfant.com/blog/
+
+Disallow: /components/
+Disallow: /admin/
+Disallow: /assets/
+Disallow: /cashfree-log/
+Disallow: /checkout/
+Disallow: /cashfree/
+Disallow: /razorpay-php/
+Disallow: /uploads/
+Disallow: /assets/vendor/
+Disallow: /blog/add/
+Disallow: /readme.md
+
+

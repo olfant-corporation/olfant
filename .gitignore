@@ -1,0 +1,48 @@
+# Ignore OS-generated files
+.DS_Store
+Thumbs.db
+
+# Ignore Composer dependencies
+/vendor/
+
+# Ignore PHPStorm files
+.idea/
+
+# Ignore logs and cache files
+/logs/
+/cache/
+
+# Ignore environment configuration files
+.env
+
+# Ignore compiled and temporary files
+*.log
+*.bak
+*.swp
+*.tmp
+
+# Ignore user-specific files
+*.iml
+*.ipr
+*.iws
+
+# Ignore build and compiled assets
+/build/
+/public/assets/
+
+# Ignore database dumps
+/*.sql
+
+# Ignore session files
+/sessions/
+cashfree/cashfree-log
+
+# Ignore package-lock files
+package-lock.json
+npm-shrinkwrap.json
+
+# Ignore user uploads
+/uploads/
+
+# Ignore runtime-generated files
+/runtime/
