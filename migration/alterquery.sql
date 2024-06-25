@@ -1,0 +1,1 @@
+ALTER TABLE `olfant_form` ADD `contact_website` VARCHAR(255) NULL DEFAULT NULL AFTER `cancel_reason`, ADD `contact_message` TEXT NULL DEFAULT NULL AFTER `contact_website`;
