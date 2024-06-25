@@ -1,7 +1,7 @@
 <header class="header-one">
     <div class="top-header">
       <div class="container clearfix">
-        <div class="logo float-left"><a href="/"><img src="/assets/images/logo/logo.jpeg" style="width: 70px;" alt=""></a></div>
+        <div class="logo float-left"><a href="/"><img src="/assets/images/logo/logo1.jpeg" style="width: 70px;" alt=""></a></div>
         <div class="address-wrapper float-right">
           <ul>
             <li class="address">

@@ -74,15 +74,16 @@
 						<div class="col-lg-5 col-12"><div class="img-box"></div></div>
 						<div class="col-lg-7 col-12">
 							<div class="form-wrapper">
-								<form action="contact.php" class="theme-form-one form-validation" autocomplete="off" method="POST">
+							<div id="successMessage" style="display: none;">Your message has been sent successfully.</div>
+								<form id="contactForm" class="theme-form-one form-validation" autocomplete="off" method="POST">
 									<div class="row">
 										<div class="col-sm-6 col-12"><input type="text" placeholder="Your Name *" name="name"></div>
-										<div class="col-sm-6 col-12"><input type="text" placeholder="Your Phone *" name="phone"></div>
+										<div class="col-sm-6 col-12"><input type="text" placeholder="Your Phone *" minlength="10" maxlength="10" name="phone"></div>
 										<div class="col-sm-6 col-12"><input type="email" placeholder="Your Email *" name="email"></div>
 										<div class="col-sm-6 col-12"><input type="text" placeholder="Your Website *" name="web"></div>
 										<div class="col-12"><textarea placeholder="Your Message" name="message"></textarea></div>
 									</div> <!-- /.row -->
-									<button type="submit" class="theme-button-one">SEND MESSAGE</button>
+									<button type="button" id="submitButton" class="theme-button-one">SEND MESSAGE</button>
 								</form>
 							</div> <!-- /.form-wrapper -->
 						</div> <!-- /.col- -->
@@ -90,23 +91,6 @@
 				</div> <!-- /.container -->
 			
 				<!--Contact Form Validation Markup -->
-				<!-- Contact alert -->
-				<div class="alert-wrapper" id="alert-success">
-					<div id="success">
-						<button class="closeAlert"><i class="fa fa-times" aria-hidden="true"></i></button>
-						<div class="wrapper">
-							<p>Your message was sent successfully.</p>
-						</div>
-					</div>
-				</div> <!-- End of .alert_wrapper -->
-				<div class="alert-wrapper" id="alert-error">
-					<div id="error">
-						<button class="closeAlert"><i class="fa fa-times" aria-hidden="true"></i></button>
-						<div class="wrapper">
-							<p>Sorry! Something went wrong. Please try again later.</p>
-						</div>
-					</div>
-				</div> <!-- End of .alert_wrapper -->
 			</div> <!-- /.contact-us-section -->
 			
 
@@ -178,6 +162,40 @@
 
 
 		<!-- Optional JavaScript _____________________________  -->
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				document.getElementById("submitButton").addEventListener("click", function(e) {
+					e.preventDefault();
+					var form = document.getElementById("contactForm");
+					var formData = new FormData(form);
+
+					fetch('submit.php', {
+						method: 'POST',
+						body: formData
+					})
+					.then(function(response) {
+						if (!response.ok) {
+							throw new Error('Network response was not ok');
+						}
+						return response.text();
+					})
+					.then(function(data) {
+						// Hide the form
+						form.style.display = 'none';
+						// Show success message
+						document.getElementById('successMessage').style.display = 'block';
+
+						// Redirect after 2 seconds
+						setTimeout(function() {
+							window.location.href = 'index.php'; // Replace 'success_page.php' with your actual success page URL
+						}, 3000);
+					})
+					.catch(function(error) {
+						console.error('There was a problem with your fetch operation:', error);
+					});
+				});
+			});
+		</script>
 
     	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
     	<!-- jQuery -->
